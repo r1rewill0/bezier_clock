@@ -81,55 +81,6 @@ var BezierController5 = function() {
 	return {draw: drawBezier};
 };
 
-var BezierPanel = function(elem) {
-	
-	var path;
-	var start_points = [{x:10,y:10}, {x:50,y:10}, {x:10,y:50}, {x:100,y:30}, {x:150,y:167}];
-	var svg_points = [], points=[];
-	var bezier = BezierController5();
-	var width = 200, height = 300, radius = 10;
-	var border = {minX: 0, minY: 0, maxX: width, maxY: height};
-
-
-	function update() {
-		path.plot(bezier.draw(points));
-	}
-	
-	function showPointCoord(index, point) {
-		document.getElementById('myx' + (index+1)).innerHTML = point.x;
-		document.getElementById('myy' + (index+1)).innerHTML = point.y;
-	}
-
-	function addPoint(x, y, i) {
-		var svg_point = draw.circle(radius).center(x, y).attr({cursor: 'pointer'});
-		var point = {x: x, y: y};
-		points.push(point);
-		svg_point.point = point;
-		svg_points.push(x, y);
-		svg_point.draggable(border);
-		svg_point.ind = i;
-		svg_point.dragmove = function(delta, event) {
-			var point = this.point;
-			point.x = this.cx();
-			point.y = this.cy();
-			update();
-			showPointCoord(this.ind, point);
-		}
-		showPointCoord(i, point);
-	}
-
-	function draw() {
-		draw = SVG(elem).size(width, height);
-		draw.rect(width, height).stroke({color: '#f06', width: 3}).fill('white');
-		for (var i = 0; i < start_points.length; i++) {
-			addPoint(start_points[i].x, start_points[i].y, i);
-		}
-		path = draw.polyline(bezier.draw(points)).fill('none').stroke({ width: 1 });
-	}
-
-	draw();
-};
-
 function BezierClock(elem) {
 
 	var h = 200, w = 133, xpad = 50, tstep = 0.03, delay = 20;
@@ -139,7 +90,6 @@ function BezierClock(elem) {
 	var curve1 = [{x:17,y:126}, {x:88,y:38}, {x:100,y:50}, {x:100,y:184}, {x:100, y:271}];
 	var curve2 = [{x:30,y:50},{x:110,y:20},{x:156,y:80},{x:40,y:210},{x:175,y:270}];
 	var curve3 = [{x:30,y:50},{x:150,y:80},{x:80,y:140},{x:160,y:200},{x:45,y:265}];
-	//var curve4 = [{x:30,y:50},{x:70,y:160},{x:150,y:145},{x:160,y:115},{x:160,y:260}];
 	var curve4 = [{x:193,y:160},{x:27,y:165},{x:56,y:106},{x:131,y:27},{x:121,y:266}];
 	var curve5 = [{x:165,y:55},{x:20,y:90},{x:50,y:150},{x:160,y:205},{x:45,y:265}];
 	var curve6 = [{x:105,y:20},{x:52,y:145},{x:132,y:146},{x:108,y:240},{x:36,y:145}];
