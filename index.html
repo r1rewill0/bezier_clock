@@ -8,6 +8,8 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <script src="javascripts/bezier.js"></script>
+    <script src="javascripts/svg.min.js"></script>
   </head>
   <body>
     <section class="page-header">
@@ -19,11 +21,8 @@
     </section>
 
     <section class="main-content">
-      <h1>
-<a id="bezier-clock" class="anchor" href="#bezier-clock" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bezier clock</h1>
-
-<p>Показывает текущее время с помощью кривых Безье</p>
-
+      <div id="myclock"></div>
+      <script>BezierClock('myclock');</script>
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/rorewillo/bezier_clock">Bezier clock</a> is maintained by <a href="https://github.com/rorewillo">rorewillo</a>.</span>
 
