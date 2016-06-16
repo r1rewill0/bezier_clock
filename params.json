@@ -1,0 +1,6 @@
+{
+  "name": "Bezier clock",
+  "tagline": "Показывает текущее время с помощью кривых Безье",
+  "body": "# Bezier clock\r\nПоказывает текущее время с помощью кривых Безье\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
